@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Doces & Salgados | Link da Bio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#f4f4f4;
+  display:flex;
+  justify-content:center;
+}
+.container{
+  max-width:430px;
+  width:100%;
+  min-height:100vh;
+  background:#fff;
+}
+.header{
+  background:linear-gradient(135deg,#c0392b,#e74c3c);
+  color:#fff;
+  text-align:center;
+  padding:30px 20px;
+}
+.header h1{margin:0;font-size:22px}
+.header p{margin-top:6px;font-size:13px;opacity:.9}
+
+.card{
+  margin:15px;
+  padding:18px;
+  border-radius:14px;
+  color:#fff;
+  text-decoration:none;
+  display:block;
+  box-shadow:0 6px 16px rgba(0,0,0,.1);
+}
+.card h2{margin:0;font-size:17px}
+.card p{margin:4px 0 0;font-size:13px;opacity:.9}
+
+.doces{background:#e67e22}
+.salgados{background:#d35400}
+.encomendas{background:#8e44ad}
+.avaliacao{background:#f1c40f;color:#333}
+
+.whatsapp-fixo{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+
+.footer{
+  text-align:center;
+  font-size:11px;
+  color:#777;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- TOPO -->
+  <div class="header">
+    <h1>🍰 Doces & Salgados Artesanais</h1>
+    <p>Peça fácil • Entrega rápida • Sabor caseiro</p>
+  </div>
+
+  <!-- BOTÕES -->
+  <a class="card doces" href="#">
+    <h2>🍩 Doces</h2>
+    <p>Bolos, tortas e sobremesas</p>
+  </a>
+
+  <a class="card salgados" href="#">
+    <h2>🥐 Salgados</h2>
+    <p>Coxinha, pastel, combos</p>
+  </a>
+
+  <a class="card encomendas" href="#">
+    <h2>📦 Encomendas</h2>
+    <p>Festas, aniversários e eventos</p>
+  </a>
+
+  <a class="card avaliacao" href="#">
+    <h2>⭐ Avalie no Google</h2>
+    <p>Sua opinião ajuda muito</p>
+  </a>
+
+  <div class="footer">
+    © 2026 • Doces & Salgados
+  </div>
+
+</div>
+
+<!-- WHATSAPP FIXO -->
+<a class="whatsapp-fixo" href="https://wa.me/5599999999999">
+  📲 WhatsApp
+</a>
+
+</body>
+</html>
