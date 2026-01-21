@@ -1,115 +1,235 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-pt">
 <head>
-<meta charset="UTF-8">
-<title>Doces & Salgados | Link da Bio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabor & Cia | Links Oficiais</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+        
+        /* ==========================================
+           🎨 TABELA DE CORES (PERSONALIZE AQUI)
+        ========================================== */
+        :root {
+            --cor-fundo: #0a0f1a;        /* Azul Noite Profundo */
+            --cor-texto: #ffffff;       /* Branco Puro */
+            --cor-subtexto: #94a3b8;    /* Cinzento Azulado */
+            --cor-destaque: #22c55e;    /* Verde WhatsApp / Sucesso */
+            --cor-borda: rgba(255, 255, 255, 0.1);
+            --cor-overlay-base: rgba(0,0,0,0.75);
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        body {
+            background-color: var(--cor-fundo);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--cor-texto);
+            -webkit-font-smoothing: antialiased;
+        }
 
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:#f4f4f4;
-  display:flex;
-  justify-content:center;
-}
-.container{
-  max-width:430px;
-  width:100%;
-  min-height:100vh;
-  background:#fff;
-}
-.header{
-  background:linear-gradient(135deg,#c0392b,#e74c3c);
-  color:#fff;
-  text-align:center;
-  padding:30px 20px;
-}
-.header h1{margin:0;font-size:22px}
-.header p{margin-top:6px;font-size:13px;opacity:.9}
+        /* Estilo dos Cards de Botão */
+        .card-link {
+            position: relative;
+            width: 100%;
+            height: 100px; /* Reduzi um pouco a altura para caberem mais botões no ecrã */
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            border: 1px solid var(--cor-borda);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
 
-.card{
-  margin:15px;
-  padding:18px;
-  border-radius:14px;
-  color:#fff;
-  text-decoration:none;
-  display:block;
-  box-shadow:0 6px 16px rgba(0,0,0,.1);
-}
-.card h2{margin:0;font-size:17px}
-.card p{margin:4px 0 0;font-size:13px;opacity:.9}
+        .card-link:active {
+            transform: scale(0.96);
+        }
 
-.doces{background:#e67e22}
-.salgados{background:#d35400}
-.encomendas{background:#8e44ad}
-.avaliacao{background:#f1c40f;color:#333}
+        .card-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transition: transform 0.5s ease;
+        }
 
-.whatsapp-fixo{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  padding:14px 18px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 6px 18px rgba(0,0,0,.25);
-}
+        .card-link:hover .card-image {
+            transform: scale(1.05);
+        }
 
-.footer{
-  text-align:center;
-  font-size:11px;
-  color:#777;
-  padding:20px;
-}
-</style>
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--cor-overlay-base) 20%, rgba(0,0,0,0.2) 100%);
+            z-index: 1;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            flex-shrink: 0;
+        }
+
+        /* Efeito de Destaque Pulsante */
+        .glow-active {
+            border: 2px solid var(--cor-destaque);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.25);
+        }
+
+        .fade-up {
+            animation: fadeInUp 0.7s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
+<body class="min-h-screen flex flex-col items-center py-8 px-5">
 
-<body>
-<div class="container">
+    <div class="w-full max-w-md">
+        
+        <!-- Cabeçalho / Perfil -->
+        <header class="text-center mb-8 fade-up">
+            <div class="relative inline-block">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=200" 
+                     alt="Logo Sabor & Cia" 
+                     class="w-24 h-24 rounded-full border-4 border-white/5 shadow-2xl object-cover mx-auto">
+                <div class="absolute bottom-1 right-1 w-5 h-5 rounded-full border-2 border-[#0a0f1a]" style="background-color: var(--cor-destaque);"></div>
+            </div>
+            <h1 class="text-2xl font-extrabold mt-4 tracking-tight">Sabor & Cia</h1>
+            <p style="color: var(--cor-subtexto);" class="text-sm mt-1 font-medium">Os melhores salgados e doces da região 🥨</p>
+        </header>
 
-  <!-- TOPO -->
-  <div class="header">
-    <h1>🍰 Doces & Salgados Artesanais</h1>
-    <p>Peça fácil • Entrega rápida • Sabor caseiro</p>
-  </div>
+        <!-- Lista de Botões (Links) -->
+        <main class="space-y-1">
+            
+            <!-- 1. WHATSAPP (Destaque Principal) -->
+            <a href="https://wa.me/5500000000000" class="card-link glow-active fade-up" style="animation-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1541696490-8744a5db7f7c?auto=format&fit=crop&q=80&w=500" class="card-image">
+                <div class="card-overlay" style="background: linear-gradient(90deg, rgba(22, 101, 52, 0.9) 0%, rgba(0,0,0,0.3) 100%);"></div>
+                <div class="card-content">
+                    <div class="icon-box">
+                        <i class="fab fa-whatsapp text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-base">Fazer Pedido Online</h2>
+                        <p style="color: var(--cor-destaque);" class="text-[10px] uppercase font-extrabold tracking-widest">Aberto • Peça Agora</p>
+                    </div>
+                </div>
+            </a>
 
-  <!-- BOTÕES -->
-  <a class="card doces" href="#">
-    <h2>🍩 Doces</h2>
-    <p>Bolos, tortas e sobremesas</p>
-  </a>
+            <!-- 2. CARDÁPIO -->
+            <a href="#" class="card-link fade-up" style="animation-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&q=80&w=500" class="card-image">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="icon-box">
+                        <i class="fas fa-book-open text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-base">Ver Cardápio Digital</h2>
+                        <p style="color: var(--cor-subtexto);" class="text-[10px] uppercase font-bold tracking-widest">Sabores e Preços</p>
+                    </div>
+                </div>
+            </a>
 
-  <a class="card salgados" href="#">
-    <h2>🥐 Salgados</h2>
-    <p>Coxinha, pastel, combos</p>
-  </a>
+            <!-- 3. COMBOS FAMÍLIA -->
+            <a href="#" class="card-link fade-up" style="animation-delay: 0.3s;">
+                <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&q=80&w=500" class="card-image">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="icon-box">
+                        <i class="fas fa-percentage text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-base">Combos & Promoções</h2>
+                        <p style="color: var(--cor-subtexto);" class="text-[10px] uppercase font-bold tracking-widest">O melhor custo-benefício</p>
+                    </div>
+                </div>
+            </a>
 
-  <a class="card encomendas" href="#">
-    <h2>📦 Encomendas</h2>
-    <p>Festas, aniversários e eventos</p>
-  </a>
+            <!-- 4. ENCOMENDAS (FESTAS) -->
+            <a href="#" class="card-link fade-up" style="animation-delay: 0.4s;">
+                <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&q=80&w=500" class="card-image">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="icon-box">
+                        <i class="fas fa-birthday-cake text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-base">Encomendas para Festas</h2>
+                        <p style="color: var(--cor-subtexto);" class="text-[10px] uppercase font-bold tracking-widest">Centos e Bolos Decorados</p>
+                    </div>
+                </div>
+            </a>
 
-  <a class="card avaliacao" href="#">
-    <h2>⭐ Avalie no Google</h2>
-    <p>Sua opinião ajuda muito</p>
-  </a>
+            <!-- 5. ONDE ESTAMOS (MAPA) -->
+            <a href="#" class="card-link fade-up" style="animation-delay: 0.5s;">
+                <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&q=80&w=500" class="card-image">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="icon-box">
+                        <i class="fas fa-map-marker-alt text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-base">Nossa Localização</h2>
+                        <p style="color: var(--cor-subtexto);" class="text-[10px] uppercase font-bold tracking-widest">Rua do Sabor, 123 - Centro</p>
+                    </div>
+                </div>
+            </a>
 
-  <div class="footer">
-    © 2026 • Doces & Salgados
-  </div>
+            <!-- 6. AVALIAÇÕES (GOOGLE) -->
+            <a href="#" class="card-link fade-up" style="animation-delay: 0.6s;">
+                <div class="card-overlay" style="background: rgba(15, 23, 42, 0.95);"></div>
+                <div class="card-content">
+                    <div class="icon-box" style="background: rgba(251, 191, 36, 0.1); border-color: rgba(251, 191, 36, 0.3);">
+                        <i class="fas fa-star text-amber-400"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-base text-gray-100">Avalie-nos no Google</h2>
+                        <p class="text-[10px] text-amber-400 uppercase font-bold tracking-widest">A sua opinião importa!</p>
+                    </div>
+                </div>
+            </a>
 
-</div>
+        </main>
 
-<!-- WHATSAPP FIXO -->
-<a class="whatsapp-fixo" href="https://wa.me/5599999999999">
-  📲 WhatsApp
-</a>
+        <!-- Redes Sociais Secundárias -->
+        <div class="mt-10 flex justify-center space-x-8 fade-up" style="animation-delay: 0.7s;">
+            <a href="#" class="text-gray-500 hover:text-white transition-all transform hover:scale-110"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="#" class="text-gray-500 hover:text-white transition-all transform hover:scale-110"><i class="fab fa-tiktok text-2xl"></i></a>
+            <a href="#" class="text-gray-500 hover:text-white transition-all transform hover:scale-110"><i class="fab fa-facebook-f text-2xl"></i></a>
+        </div>
+
+        <footer class="mt-12 text-center text-gray-700 text-[9px] uppercase tracking-[0.3em] font-bold fade-up" style="animation-delay: 0.8s;">
+            Sabor & Cia Artesanal • 2024
+        </footer>
+
+    </div>
 
 </body>
 </html>
+
